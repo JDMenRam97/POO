@@ -1,0 +1,45 @@
+using System;
+
+public abstract class Personaje
+{
+    private string nombre;
+    private string raza;
+
+    public string Nombre 
+        {
+        get { return nombre; }
+        set { nombre = value; }
+        }
+    public string Raza
+    {
+        get { return raza; }
+        set { raza = value; }
+    }
+
+    public Personaje (string nombre, string raza)
+    {
+        this.nombre = nombre;
+        this.raza = raza;
+    }
+    public abstract void saludar();
+
+}
+public class Guerrero : Personaje
+{
+    public Guerrero(string nombre, string raza) 
+        :base (nombre,raza)
+    { 
+    }
+    public override void saludar()
+    {
+        Console.WriteLine($"Mi nombre es {Nombre} y Soy un Guerrero");
+    }
+}
+public class program
+{
+    public static void Main()
+   {
+    Personaje guerrero = new Guerrero("Hercules","guerrera");
+        guerrero.saludar();
+   }
+}
